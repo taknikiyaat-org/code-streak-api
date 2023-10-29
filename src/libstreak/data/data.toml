@@ -1,0 +1,6 @@
+profiles = [
+    { id_profile = 1, code = "linkedin", name = "LinkedIn", url = "https://www.linkedin.com/" },
+    { id_profile = 2, code = "github", name = "Github", url = "https://github.com/" },
+    { id_profile = 3, code = "leetcode", name = "Leetcode", url = "https://leetcode.com/" },
+    { id_profile = 4, code = "codeforces", name = "Codeforces", url = "https://codeforces.com/" },
+]
