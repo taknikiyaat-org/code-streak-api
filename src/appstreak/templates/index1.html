@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2>Codeforces Profile</h2>
+<p>Hello {{name}}, {{ attr }} things take time!</p>
+<br><br>
+
+<!--fill:rgb(0,0,255)-->
+<!--stroke:rgb(0,0,0)-->
+<!--stroke-width:3-->
+<!--<svg width="400" height="110">-->
+
+<!--<ul>-->
+{% set x = 1 %}
+{% set y = 1 %}
+{% for submission in submissions %}
+<!--  <li>-->
+<!--  {{ submission }} -->
+<!--  {{submissions[submission]}}-->
+<!--  index: {{loop.index}}-->
+<!--  </li>-->
+
+<!--  <svg width="15" height="15">-->
+<!--    <rect width="11" height="11" y="1" x="5"-->
+<!--    {% if submissions[submission] > 1 %}-->
+<!--      fill="#40C463"-->
+<!--    {% endif %}-->
+<!--      style="stroke-width:3;" />-->
+<!--  </svg>-->
+
+  {{loop.index}} {{loop.index % 7}} {{x}} {{y1}} <br>
+<!--  {% if submissions[submission][0] > 1 %}-->
+<!--    <svg width="15" height="15">-->
+<!--      <rect width="11" height="11" y={{loop.index}}*5 x={{loop.index}}*5-->
+<!--      fill="#40C463"-->
+<!--      style="stroke-width:3;" />-->
+<!--    </svg>-->
+<!--  {% else %}-->
+<!--    <svg width="15" height="15">-->
+<!--      <rect width="11" height="11" y={{loop.index}}*5 x={{loop.index}}*5-->
+<!--      fill="#EBEDF0"-->
+<!--      style="stroke-width:3;" />-->
+<!--    </svg>-->
+<!--  {% endif %}-->
+
+
+{% endfor %}
+<!--</ul>-->
+
+
+
+<!--<table style="width:100%">-->
+<!--  <tr>-->
+<!--    <th>Company</th>-->
+<!--    <th>Contact</th>-->
+<!--    <th>Country</th>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Alfreds Futterkiste</td>-->
+<!--    <td>Maria Anders</td>-->
+<!--    <td>Germany</td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Centro comercial Moctezuma</td>-->
+<!--    <td>Francisco Chang</td>-->
+<!--    <td>Mexico</td>-->
+<!--  </tr>-->
+<!--</table>-->
+<!--<p>To understand the example better, we have added borders to the table.</p>-->
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+
+body {
+  background-color: #000000;
+<!-- 1f0f21 3b2d3d 251f27 404040 -->
+}
+
+p.date {
+  text-align: right;
+}
+
+p.main {
+  text-align: left;
+}
+</style>
+
+
+<body>
+<h2 style ="font-size:2.5vw;color:white;">Codeforces Profile</h2>
+<p style ="font-size:1.5vw;color:white;">Hello Ayesha, good things take time!</p>
+<br><br>
+
+
+<!--
+users_submissions: dict = {
+    "theayeshasiddiqa": {
+        "submissions": {'2022-04-08': 0, '2022-04-09': 4},
+    }
+}
+coordinates = {
+    '2022-05-01': {'x': 287.5, 'y': 385, 'month_name': 'May'}
+}
+-->
+
+
+{% for username in users_submissions %}
+
+<div style="font-size:1.5vw; background: -webkit-linear-gradient(left,#1f0f21,white); /* Firefox */ background: linear-gradient(to right,#1f0f21,white); /* Safari */ background: -o-linear-gradient(left,#1f0f21,white); /* Opera */ background: -moz-linear-gradient(left,#1f0f21,white); width:100%; height:100%; display: flex;
+justify-content: center; align-items: center;"
+> {{loop.index}}) {{" "+username}}
+</div>
+
+
+<svg viewBox="0 0 4000 520" xmlns="http://www.w3.org/2000/svg"
+     fill="#606060" style ="outline: 0px solid white; color:black;">
+
+    {% set submissions = users_submissions[username]["submissions"] %}
+
+    {% for date in submissions %}
+
+        {% set problems_count = submissions[date] %}
+        {% set x = coordinates[date]["x"] %}
+        {% set y = coordinates[date]["y"] %}
+        {% set month_name = coordinates[date]["month_name"] %}
+
+        {% if problems_count > 3 %} <!-- dark green -->
+            <rect width={{bubble_size}} height={{bubble_size}} x={{x}} y={{y}} fill="#216E39"
+                  rx="15" style="stroke-width:3; outline: 0px solid green;"/>
+            {% if show_dates %}<text x={{x+10}} y={{y+25}} style="font-size:1.3vw" fill="white" font-weight="bold">
+                {{date[-2:]}}</text>{% endif %}
+
+        {% elif problems_count >= 1 %} <!-- light green -->
+            <rect width={{bubble_size}} height={{bubble_size}} x={{x}} y={{y}} fill="#40C463"
+                  rx="15" style="stroke-width:3; outline: 0px solid green;"/>
+            {% if show_dates %}<text x={{x+10}} y={{y+25}} style="font-size:1.3vw" fill="white" font-weight="bold">
+                {{date[-2:]}}</text>{% endif %}
+
+        {% else %} <!-- grey -->
+            <rect width={{bubble_size}} height={{bubble_size}} x={{x}} y={{y}} fill="#EBEDF0"
+                  rx="15" style="stroke-width:3; outline: 0px solid green;"/>
+            {% if show_dates %}<text x={{x+10}} y={{y+25}} style="font-size:1.3vw" fill="#36454F" font-weight="bold">
+                {{date[-2:]}}</text>{% endif %}
+        {% endif %}
+
+        {% if month_name %} <!-- month name -->
+            <text style="font-size:1.5vw" x={{x+15}} y={{(bubble_size*2)*6}} fill="white" font-weight="bold">
+                {{month_name}}</text>
+        {% endif %}
+
+    {% endfor %}
+</svg>
+
+<h2 style ="font-size:1.0vw;color:white;"> total_solved_streak {{users_submissions[username]["total_solved_streak"]}}</h2>
+<h2 style ="font-size:1.0vw;color:white;">total_solved {{users_submissions[username]["total_solved"]}}</h2>
+
+<br><br><br><br>
+
+{% endfor %}
+
+
+</body>
+</html>
